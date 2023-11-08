@@ -102,6 +102,7 @@
         if(조건식) 실행할 코드한줄;
     */
 
+    /*
     //console.log(6 % 4); // %는 특정 값을 나누는 연산자가 아닌 나눈 몫의 나머지를 구하는 연산자
     // 백엔드 개발에서 페이지 개수 구할때 사용
     // ex. 게시글 10갠데 3개씩 보이고 싶을때(페이지 총 4개 필요): 나머지가 0이면 몫만큼의 페이지 개수만 필요, 나머지가 0이 아니면 몫+1만큼의 페이지 개수 필요
@@ -117,6 +118,22 @@
 
     console.log(true && false) //&&연산자는 복수개의 값이 모두 true여야지 true로 인지
     console.log(true || false) //복수개의 값중에 하나만이라도 true면 true로 인지
+    */
+
+    const hour = new Date().getHours();
+    document.body.style.backgroundColor = 'aqua';
+
+    if (hour >= 5 && hour < 11) {
+      document.body.style.backgroundColor = 'orange';
+    } else if (hour >= 11 && hour < 15) {
+      document.body.style.backgroundColor = 'lightblue';
+    } else if (hour >= 15 && hour < 19) {
+      document.body.style.backgroundColor = 'pink';
+    } else {
+      document.body.style.backgroundColor = 'black';
+    }
+
+    console.log(hour)
 
   </script>
 </body>
