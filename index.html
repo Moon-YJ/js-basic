@@ -269,6 +269,31 @@
     }
     func5('');
 
+    // 선언적함수, 대입형함수, 화살표함수
+    console.log(plus(2, 3));
+    // 선언적함수 (호출위치 자유로움)
+    function plus(num1, num2) {
+      return num1 + num2;
+    };
+    // 대입형함수 (대입 이후에만 호출 가능)
+    let minus = function (num1, num2) {
+      return num1 - num2;
+    };
+    console.log(minus(5, 2));
+    // 화살표함수 (대입형 함수를 축약한 형태)
+    const multiply = (num1, num2) => {
+      return num1 * num2
+    }
+    const resultM = multiply(2, 3);
+    console.log('multiply', resultM);
+    // 화살표함수에서 return문 생략한 형태
+    // 화살표 뒤에 중괄호, return문 없이 연산식이 있으면 해당값 자체가 리턴되는 형태
+    const multiply2 = (num1, num2) => num1 * num2;
+    console.log('multiply2', multiply2(3, 5));
+    // 굳이 리턴할 필요가 없는 함수이더라도 코드의 간결화를 위해 축약하는 경우도 존재
+    const introduce = name => name && console.log(name + '님 안녕하세요');
+    introduce('홍길동');
+
   </script>
 </body>
 
