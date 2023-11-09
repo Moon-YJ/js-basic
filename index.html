@@ -125,6 +125,14 @@
         // 객체값 추가할때
         iphone1.weight = '1kg';
         console.log(iphone1);
+        -----------------------------
+        7. 함수(function)
+        : 자주 쓰는 여러개의 코드들을 패키징해서 재활용하기 위함
+        : 함수를 먼저 정의한 이후에 호출 가능
+        : 함수 정의시 이름은 붙이지 않은 함수는 익명함수, 이름을 붙인 함수는 기명함수
+        : 매개변수(parameter), 인수(argument)
+          - 매개변수: 외부의 같은 함수 내부로 전달하기 위한 통로명
+          - 인수: 함수의 매개변수를 통해서 외부에서 전달되는 값 자체
     */
 
     /*
@@ -165,6 +173,22 @@
     }
 
     console.log(hour);
+
+    // 함수의 정의 (name이라는 매개변수가 연결되어있는 함수)
+    function inform(name) {
+      console.log(name + '님 안녕하세요.')
+    }
+    // 함수 호출 (inform 함수 호출시 '홍길동'이라는 인수 전달)
+    inform('홍길동');
+
+    const func1 = (num1, num2) => {
+      if (typeof num1 === 'number' && typeof num2 === 'number') {
+        console.log(num1 + num2);
+      } else {
+        console.log('숫자만 전달하세요');
+      }
+    }
+    func1(10, 11);
 
   </script>
 </body>
