@@ -51,6 +51,14 @@
         - 메모리 선언은 callstack에서 일어나지만 값은 힙메모리(memory heap)에 저장되므로 힙메모리에 있는 위치값만 콜스택 변수에 참조됨
         - 종류: array, object
         - const는 재할당이 불가능
+        - 기존 참조형 자료는 배열, 객체의 변수로 복사시 원본복사가 안됨 (Shallow Copy: 얕은 복사)
+          => 기존 배열을 단순히 변수에 옮겨담을시
+    */
+
+    /*
+      전개연산자 (Spread Operator)
+      - 참조형 자료를 완전 복사 (Deep Copy, 불변성 유지됨)
+      - heap memory에 있는 값을 물리적으로 복사
     */
 
     //아래의 경우는 실제로 data메모리공간에 'game'이라는 원시형 자료값이 물리적으로 들어있기때문에
@@ -67,7 +75,7 @@
     console.log(colors);
     //하지만 아래처럼 아래 새롭게 값을 재할당 하려고 하면 변수에는 새로운 참조링크가 할당되므로
     //callstack에 있는 변수에 새로운 참조링크가 재할당되는 것이므로 에러발생
-    colors = [1, 2, 3];
+    // colors = [1, 2, 3]; //error
 
     let test;
     console.log(test);
@@ -81,6 +89,49 @@
       [name]: 'David'
     }
     console.log(student.abc) //David
+
+    // 얕은 복사(Shallow Copy)
+    const newColors = colors;
+    newColors[0] = 'hotpink';
+    // 원본 데이터가 아닌 참조링크가 복사돼서 불변성 유지가 안됨 (=> 두개 배열값이 모두 변경됨)
+    console.log('colors:::', colors)
+    console.log('newColors:::', newColors)
+
+    // 전개 연산자(Spread Operator)
+    const interests = ['game', 'movie', 'webtoon'];
+    console.log(...interests);
+    const newInterests = [...interests];
+    newInterests[2] = 'reading';
+
+    console.log('interests:::', interests);
+    console.log('newInterests:::', newInterests);
+
+    const student2 = {
+      name: 'James',
+      age: 20,
+      school: 'uni'
+    }
+    const newStudent = { ...student2 };
+    newStudent.age = 22;
+    console.log('new::', newStudent);
+    console.log('origin::', student2);
+    // 작년 회원가입 정보
+    const student3 = {
+      name: 'Michelle',
+      age: 20,
+    }
+    // 올해 회원가입 정보
+    const extraInfo = {
+      name: 'Michelle',
+      age: 21,
+      hobboy: 'game'
+    }
+    // 작년회원가입 정보값을 유지하면서 올해 회원가입 정보값을 업데이트하는 새로운 데이터 추가
+    // 전개 연산자를 이용하면 원본을 유지하면서 기존 2개의 객체값을 합칠 때 유용
+    const newStudent3 = { ...student3, ...extraInfo }
+    console.log('student3::', student3);
+    console.log('extraInfo::', extraInfo);
+    console.log('newStudent3::', newStudent3);
   </script>
 </body>
 
