@@ -173,12 +173,21 @@
     const isFemale = student1.isFemale;
     console.log(age);
     */
-    const name3 = '홍길동';
+    //const name3 = '홍길동';
     //뽑아낼때에는 key값으로 뽑아야 되지만 다시 다른값으로 변경처리 가능
-    const { name: name1, age, isFemale } = student1;
-    console.log(name1);
+    const { name: user_name, age, isFemale } = student1;
+    console.log(user_name);
     console.log(age);
     console.log(isFemale);
+
+    const { hobby: user_hobby, gender: user_gender, school: user_school } = {
+      hobby: 'riding a bike',
+      gender: 'female',
+      school: 'undergraduate',
+    }
+    console.log(user_hobby);
+    console.log(user_gender);
+    console.log(user_school);
   </script>
 </body>
 
